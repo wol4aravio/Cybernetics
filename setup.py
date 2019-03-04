@@ -9,7 +9,7 @@ else:
 
 setup(
     name="cybernetics",
-    version="0.1.0",
+    version="0.1.1",
 
     description="Cybernetics - package with various dynamic models and cybernetics tools",
 
