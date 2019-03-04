@@ -1,2 +1,7 @@
+.mypy_cache
 .pytest_cache
 .vscode
+.idea
+__pycache__
+htmlcov
+.coverage

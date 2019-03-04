@@ -4,6 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+intervallum = "*"
+scipy = "*"
+numpy = "*"
 
 [dev-packages]
 pytest = "*"
@@ -11,6 +14,7 @@ pytest-cov = "*"
 pytest-xdist = "*"
 mypy = "*"
 pipenv-to-requirements = "*"
+"flake8" = "*"
 
 [requires]
 python_version = "3.6"
