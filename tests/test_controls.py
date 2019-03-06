@@ -10,9 +10,16 @@ def test_pwc():
     controller = PWC(time_grid=np.arange(0.0, 1.1, 0.1), values=list(range(0, 11)))
     assert controller(0) == 0
     assert controller(0.01) == 0
-    assert controller(1e9) == 10
+    assert controller(0.11) == 1
+    assert controller(0.21) == 2
     with pytest.raises(ValueError):
         _ = controller(-1)
+    with pytest.raises(ValueError):
+        _ = controller(1e3)
+
+    controller = PWC(time_grid=np.arange(0.0, 1.1, 0.1), values=list(range(0, 11)), default_value=-17)
+    assert_almost_equal(controller(-1), -17)
+    assert_almost_equal(controller(1e3), -17)
 
 
 def test_pwl():
@@ -27,3 +34,8 @@ def test_pwl():
         _ = controller(-1)
     with pytest.raises(ValueError):
         _ = controller(1e3)
+
+    controller = PWL(time_grid=[0, 1, 3], values=[0, -1, 3], default_value=-17)
+    assert_almost_equal(controller(-1), -17)
+    assert_almost_equal(controller(1e3), -17)
+
